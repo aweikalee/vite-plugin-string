@@ -1,0 +1,22 @@
+{
+  "name": "vite-plugin-string",
+  "version": "0.0.1",
+  "description": "converts text files to modules",
+  "main": "dist/index.js",
+  "typings": "dist",
+  "scripts": {
+    "dev": "npm run build -- --watch",
+    "build": "tsc"
+  },
+  "author": "aweikalee",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.1.2",
+    "vite": "^1.0.0-rc.13"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ]
+}
