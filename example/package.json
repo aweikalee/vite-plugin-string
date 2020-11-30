@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "basic",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite serve"
+  },
+  "devDependencies": {
+    "vite": "^1.0.0-rc.13",
+    "vite-plugin-string": "0.0.2"
+  }
+}
