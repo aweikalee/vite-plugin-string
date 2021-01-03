@@ -1,9 +1,9 @@
 import { Plugin } from 'vite'
-import { createFilter, dataToEsm } from 'rollup-pluginutils'
+import { createFilter, dataToEsm, FilterPattern } from '@rollup/pluginutils'
 
 export interface Options {
-    include?: Array<string | RegExp> | string | RegExp | null
-    exclude?: Array<string | RegExp> | string | RegExp | null
+    include?: FilterPattern
+    exclude?: FilterPattern
     compress?: boolean | ((code: string) => string)
 }
 
@@ -27,16 +27,12 @@ export default function (userOptions: Options = {}): Plugin {
     const compress = options.compress === true ? compressGLSL : options.compress
 
     return {
-        transforms: [
-            {
-                test({ path }) {
-                    return filter(path)
-                },
-                transform({ code }) {
-                    return dataToEsm(compress ? compress(code) : code)
-                },
-            },
-        ],
+        name: 'vite-plugin-string',
+        transform(source, id) {
+            if (!filter(id)) return
+
+            return dataToEsm(compress ? compress(source) : source)
+        },
     }
 }
 
