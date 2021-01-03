@@ -11,6 +11,8 @@ console.log(fragment)
 npm install --save-dev vite-plugin-string
 ```
 
+> If you are using `vite@1.0.0`, please install `vite-plugin-string@0.0.2`.
+
 ## Usage
 ``` js
 // vite.config.js
