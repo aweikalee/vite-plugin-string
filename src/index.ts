@@ -24,7 +24,7 @@ export default function (userOptions: Options = {}): Plugin {
 
     const filter = createFilter(options.include, options.exclude)
 
-    const compress = options.compress === true ? compressGLSL : options.compress
+    const compress = options.compress === true ? defaultCompress : options.compress
 
     return {
         name: 'vite-plugin-string',
@@ -36,7 +36,7 @@ export default function (userOptions: Options = {}): Plugin {
     }
 }
 
-function compressGLSL(code: string) {
+export function defaultCompress(code: string) {
     let needNewline = false
     return code
         .replace(
