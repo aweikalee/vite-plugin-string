@@ -9,6 +9,6 @@
   },
   "devDependencies": {
     "vite": "^2.6.14",
-    "vite-plugin-string": "1.1.0"
+    "vite-plugin-string": "1.1.1"
   }
 }
