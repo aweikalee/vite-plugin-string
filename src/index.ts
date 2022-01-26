@@ -4,7 +4,7 @@ import { createFilter, dataToEsm, FilterPattern } from '@rollup/pluginutils'
 export interface Options {
     include?: FilterPattern
     exclude?: FilterPattern
-    compress?: boolean | ((code: string) => string)
+    compress?: boolean | ((code: string) => string | Promise<string>)
 }
 
 export default function (userOptions: Options = {}): Plugin {
@@ -25,19 +25,19 @@ export default function (userOptions: Options = {}): Plugin {
 
     const filter = createFilter(options.include, options.exclude)
 
-    const compress = options.compress === true ? compressGLSL : options.compress
+    const compress = options.compress === true ? defaultCompress : options.compress
 
     return {
         name: 'vite-plugin-string',
-        transform(source, id) {
+        async transform(source, id) {
             if (!filter(id)) return
 
-            return dataToEsm(compress ? compress(source) : source)
+            return dataToEsm(compress ? await compress(source) : source)
         },
     }
 }
 
-function compressGLSL(code: string) {
+export function defaultCompress(code: string) {
     let needNewline = false
     return code
         .replace(

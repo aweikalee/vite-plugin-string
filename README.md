@@ -48,6 +48,7 @@ vitePluginString(options)
   compress: true,
 
   // if a function, will instead of default compress function
+  // returns string|Promise<string>
   compress(code) {
     return code.replace(/\n/g, '')
   }
