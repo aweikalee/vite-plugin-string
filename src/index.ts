@@ -37,7 +37,7 @@ export default function (userOptions: Options = {}): Plugin {
     }
 }
 
-export function compressGLSL(code: string) {
+function compressGLSL(code: string) {
     let needNewline = false
     return code
         .replace(
