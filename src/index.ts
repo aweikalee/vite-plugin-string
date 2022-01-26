@@ -16,6 +16,7 @@ export default function (userOptions: Options = {}): Plugin {
                 '**/*.vert',
                 '**/*.frag',
                 '**/*.glsl',
+                '**/*.wgsl',
             ],
             compress: true,
         } as Options,
@@ -36,7 +37,7 @@ export default function (userOptions: Options = {}): Plugin {
     }
 }
 
-function compressGLSL(code: string) {
+export function compressGLSL(code: string) {
     let needNewline = false
     return code
         .replace(
