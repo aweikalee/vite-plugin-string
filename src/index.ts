@@ -16,6 +16,7 @@ export default function (userOptions: Options = {}): Plugin {
                 '**/*.vert',
                 '**/*.frag',
                 '**/*.glsl',
+                '**/*.wgsl',
             ],
             compress: true,
         } as Options,
