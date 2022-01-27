@@ -1,5 +1,5 @@
 # Vite Plugin String
-Converts text files to modules. Such as .vs, .fs, .vert, .frag, .glsl etc.
+Converts text files to modules. Such as .vs, .fs, .vert, .frag, .glsl, wgsl etc.
 
 ```js
 import fragment from './fragment.glsl'
@@ -38,6 +38,7 @@ vitePluginString(options)
     '**/*.vert',
     '**/*.frag',
     '**/*.glsl',
+    '**/*.wgsl',
   ],
 
   /* Default: undefined */
