@@ -1,4 +1,4 @@
-import { Plugin } from 'vite'
+import type { Plugin } from 'vite'
 import { createFilter, dataToEsm, FilterPattern } from '@rollup/pluginutils'
 
 export interface Options {
