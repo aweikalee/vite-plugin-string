@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-string",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Converts text files to modules. Such as .vs, .fs, .vert, .frag, .glsl etc.",
   "type": "module",
   "exports": {
