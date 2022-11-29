@@ -6,6 +6,15 @@ import fragment from './fragment.glsl'
 console.log(fragment)
 ```
 
+## Preface
+Most cases, you don't need this plugin.
+
+`vite` already supports suffix `?raw`, import as string.
+
+```js
+import fragment from './fragment.glsl?raw'
+```
+
 ## Installation
 ```sh
 npm install --save-dev vite-plugin-string
