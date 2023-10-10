@@ -32,7 +32,10 @@ export default function (userOptions: Options = {}): Plugin {
         async transform(source, id) {
             if (!filter(id)) return
 
-            return dataToEsm(compress ? await compress(source) : source)
+            return {
+                code: dataToEsm(compress ? await compress(source) : source),
+                map: null,
+            }
         },
     }
 }
